@@ -1,0 +1,29 @@
+
+name: E01 - Missing Dependency
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Create isolated environment
+        run: python -m venv .venv
+
+      - name: Install dependencies
+        run: .venv/bin/python -m pip install -r scenarios/E01_missing_dependency/requirements.txt
+
+      - name: Run application
+        run: .venv/bin/python scenarios/E01_missing_dependency/app.py
