@@ -1,0 +1,12 @@
+
+{
+  "scenario_id": "E01",
+  "name": "Missing Python dependency",
+  "category": "dependency_error",
+  "error_type": "ModuleNotFoundError",
+  "error_message": "No module named 'requests'",
+  "root_cause": "The requests package is used in app.py but is missing from requirements.txt.",
+  "affected_file": "scenarios/E01_missing_dependency/requirements.txt",
+  "expected_fix": "Add requests to requirements.txt",
+  "severity": "medium"
+}
